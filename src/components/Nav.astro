@@ -1,0 +1,113 @@
+---
+// On définit les noms des éléments de la navbar
+const everyoneElements = [["À propos","about"], ["Mon travail", "work"]];
+const unloggedElements = [["Me connecter", "signin"]]
+const loggedElements = [["Mon compte", "account"], ["Messagerie", "inbox"], ["Déconnexion", "logout"]];
+
+
+
+---
+
+<header class="mainheader">
+    <div class="logo">
+        <a href="/"><img src="public/imgresources/logo.png"></a>
+    </div>
+    <ul>
+        {everyoneElements.map(([item, link]) => 
+        <li>
+            <a href={"/" + link}>
+                {item}
+            </a>
+        </li>)}
+    </ul>
+    <ul class=ul2>
+        {unloggedElements.map(([item, link]) => 
+        <li>
+            <a href={"/" + link}>
+                {item}
+            </a>
+        </li>)}
+    </ul>
+</header>
+
+<style>
+    header {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin-top: 2vh;
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin-bottom: 4vh;
+        top: 0;
+        left: 0;
+    }
+
+    header .logo {
+        margin-left: 10%;
+    }
+
+    header img {
+        width: 50px;
+    }
+
+
+    header a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    header ul {
+        display: flex;
+        flex-direction: row;
+        font-size: .8rem;
+        align-items: center;
+        margin-right: 10%;
+
+    }
+
+    header ul.ul2 {
+        margin-left: auto;
+    }
+
+    header ul li {
+        text-decoration: none;
+        list-style: none;
+        transition: transform .3s ease;
+        margin-left: 20px;  
+    } 
+
+    header div {
+        align-items: center;
+    }
+
+    header ul li:hover {
+        transform: translateY(1px);
+    }
+
+    .active {
+        color:#6C53CD !important;
+    }
+
+
+</style>
+
+<script>
+
+    // Définir une classe active
+    const nav = document.querySelector(".mainheader");
+    const navLinks = nav ? nav.querySelectorAll("a") : [];
+    const currentURL = window.location.href;
+
+    navLinks.forEach((link) => {
+        if ((link.href === currentURL) || (link.href === window.location.origin + "/signin" && currentURL === window.location.origin + '/register'))  {
+            link.classList.toggle("active");
+        }
+    });
+
+    
+    //-----------------------------
+</script>
+

@@ -1,0 +1,26 @@
+---
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+
+---
+
+<html lang="en">
+
+<Nav />
+<body>
+    <slot></slot>
+</body>
+<Footer />  
+</html>
+
+<script>
+</script>
+
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>

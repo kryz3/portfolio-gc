@@ -1,0 +1,100 @@
+---
+
+---
+<script src="https://kit.fontawesome.com/9f26384632.js" crossorigin="anonymous"></script>
+
+<footer>
+    <div class="top">
+        <div class="logo">
+            <img src="public/imgresources/logo.png">
+            <p>GIRAULT Conceptions</p>
+        </div>
+        <div class="networks">
+            <a href="http://facebook.com"><i class="fa-brands fa-facebook"></i></a>
+            <a href="http://linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="http://x.com"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+    </div>
+    <div class="bottom">
+        <span>Copyright &copy {new Date().getFullYear()} <a href="">GIRAULT Conceptions</a> All rights reserved</span>
+        <div>
+            <a href="/privacypolicy">Politique de confidentialité</a>
+            <a href="/terms">Conditions générales</a>
+        </div>
+    </div>
+</footer>
+
+<style>
+    footer {
+        margin-right: 10%;
+        margin-left: 10%;
+        left: 0;
+        right: 0;
+        position: absolute;
+        display: flex;
+        bottom: 0;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    footer .top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    footer .bottom {
+        display: flex;
+    }
+
+    footer p {
+        font-size: .9rem;
+    }
+
+    footer .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    footer img {
+        display: flex;
+        width: 30px;
+    }
+
+    footer .logo p {
+        display: flex;
+        padding-left: 5px;
+    }
+
+    footer a {
+        color: white;
+    }
+
+    footer .networks a {
+        margin-left: 10px;
+        transition: all 0.2s ease-out;
+    }
+
+    footer .networks a:hover, footer .bottom a:hover {
+        color: #6C53CD;
+    }
+
+    footer .bottom {
+        font-size: .7rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    footer .bottom a {
+        text-decoration: none;
+        font-weight: 400;
+        transition: all 0.2s ease-out;
+    }
+
+    footer .bottom div a {
+        padding-left: 15px;
+
+    }
+</style>

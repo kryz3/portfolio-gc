@@ -1,0 +1,27 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Formulaire from "../components/Formulaire.astro";
+import MainHead from "../layouts/MainHead.astro";
+
+
+const fields = [ 
+	//{ label: "Nom d'utilisateur", name: 'username', type: 'text' },
+	//{ label: "Prénom", name: 'firstname', type: 'text' },
+	//{ label: "Nom", name: 'name', type: 'text' },
+	{ label: "Email", name: 'email', type: 'email' },
+	{ label: "Mot de passe", name: 'password', type: 'password', min: 8 }];
+	//{ label: 'Confirmer mot de passe', name: 'repassword', type: 'password', min: 8}];
+
+
+---
+
+<html lang="en">
+	<MainHead title="S'inscrire"/>
+	<body>	
+		<MainLayout>
+		<Formulaire action="/api/auth/register" fields={fields} nature="Se connecter" lien="signin"/>
+		</MainLayout>
+	</body>
+</html>
+
+<link rel="stylesheet" href="../styles/global.css">

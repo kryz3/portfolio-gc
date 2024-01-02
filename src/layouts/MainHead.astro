@@ -1,0 +1,14 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+const { title } = Astro.props;
+
+---
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="../public/favicon.svg">
+    <title>{title}</title>
+    <ViewTransitions />
+</head>
+

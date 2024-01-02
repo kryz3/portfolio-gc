@@ -1,0 +1,32 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Formulaire from "../components/Formulaire.astro";
+import MainHead from "../layouts/MainHead.astro";
+
+const fields = [ 
+	{ label: "Nom d'utilisateur", name: 'username', type: 'text' },
+	{ label: 'Mot de passe', name: 'password', type: 'password'}];
+
+const { cookies, redirect } = Astro;
+
+const accessToken = cookies.get("sb-access-token");
+const refreshToken = cookies.get("sb-refresh-token");
+
+if (accessToken && refreshToken) {
+  return redirect("/connecte");
+}
+
+---
+
+<html lang="en">
+	<MainHead title="Connexion"/>
+	<body>	
+		<MainLayout>
+		<Formulaire action="/api/auth/signin" fields={fields} nature="S'inscrire" lien="register"/>
+		</MainLayout>
+	</body>
+</html>
+
+<link rel="stylesheet" href="../styles/global.css">
+
+
