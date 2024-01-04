@@ -2,15 +2,25 @@
 // On définit les noms des éléments de la navbar
 const everyoneElements = [["À propos","about"], ["Mon travail", "work"]];
 const unloggedElements = [["Me connecter", "signin"]]
-const loggedElements = [["Mon compte", "account"], ["Messagerie", "inbox"], ["Déconnexion", "logout"]];
+const loggedElements = [["Mon compte", "account"], ["Messagerie", "inbox"], ["Déconnexion", "api/auth/signout"]];
+let elements;
 
+const { cookies, redirect } = Astro;
 
+const accessToken = cookies.get("sb-access-token");
+const refreshToken = cookies.get("sb-refresh-token");
+
+if (accessToken && refreshToken) {
+  elements = loggedElements;
+} else {
+    elements = unloggedElements;
+}
 
 ---
 
 <header class="mainheader">
     <div class="logo">
-        <a href="/"><img src="public/imgresources/logo.png"></a>
+        <a href="/"><img src="imgresources/logo.png"></a>
     </div>
     <ul>
         {everyoneElements.map(([item, link]) => 
@@ -21,7 +31,7 @@ const loggedElements = [["Mon compte", "account"], ["Messagerie", "inbox"], ["D�
         </li>)}
     </ul>
     <ul class=ul2>
-        {unloggedElements.map(([item, link]) => 
+        {elements.map(([item, link]) => 
         <li>
             <a href={"/" + link}>
                 {item}
